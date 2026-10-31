@@ -1,0 +1,26 @@
+# Quartus generated files (never upload)
+db/
+incremental_db/
+output_files/
+simulation/
+greybox_tmp/
+.qsys_edit/
+*.rpt
+*.summary
+*.smsg
+*.jdi
+*.jditmp
+*.done
+*.pin
+*.sld
+*.qws
+*.cdf
+*.pof
+*.bak
+*.tmp
+*.vcd
+*.sof
+# Platform designer / misc
+*.sopcinfo
+*~
+Thumbs.db
