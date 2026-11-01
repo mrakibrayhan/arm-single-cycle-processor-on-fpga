@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """
-assembler_arm.py - two-pass ARMv4 (ARM state) assembler for the single-cycle ARM CPU.
+assembler_arm.py - two-pass ARMv4 (ARM state) assembler for the ARMv4-compatible CPUs (ARM-SC, ARM-MC, ARM-P).
 
     python3 assembler_arm.py prog.s -o program.hex [--depth 128] [--listing prog.lst] [--no-ldr-mov] [--features 0x000]
 
-Input  : GNU-style ARM assembly (the subset the core runs, see arm_sc_spec.md section 4).
+Input  : GNU-style ARM assembly (the ARM-state subset the cores run).
 Output : program.hex = one 8-digit hex word per line, exactly --depth lines (the ROM image read by imem_arm.v through
          $readmemh). An error is reported if the program does not fit.
 
@@ -26,7 +26,7 @@ Memory: .text is the instruction ROM at 0x00000000 (code, literal pools, constan
 
 --no-ldr-mov : LDR Rd,=const always uses a literal-pool word (GNU turns it into MOV/MVN when the constant is a rotated immediate; the base
                core (FEATURES = 0) has no rotated immediates).
---features F : also check every instruction against the decoder (decode() of arm_ctrl_model.py = decoder_arm.v) and against the classes
+--features F : (needs arm_ctrl_model.py, which is not in this repository; normally not used) also check every instruction against the decoder (decode() of arm_ctrl_model.py = decoder_arm.v) and against the classes
                built for FEATURES = F; unsupported or illegal instructions are reported as errors (use  --features 0x7ff  for the full core).
 """
 import sys, re, argparse, struct, os
