@@ -72,7 +72,7 @@ Copy the new `program.hex` (and `data.hex` if the assembler wrote one) into the 
 
 ## Limitations
 - Subset ISA, no interrupts, no caches, no MMU, no floating point.
-{c['lim']}
+- Board build memory is small (128 instruction words, 32 data words).
 
 ## Related repositories
 This is one of 9 individual processor projects on FPGA: MIPS-compatible, RISC-V and ARMv4-compatible, each as single-cycle, multi-cycle and pipelined. <!-- add links when ready -->
